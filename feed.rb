@@ -4,9 +4,11 @@ require 'nokogiri'
 class Feed
 
   BLOG_URL = 'http://krugman.blogs.nytimes.com/'
+  BLOG_COOKIES = 'NYT-S=0MJIVCbHZCJpfDXrmvxADeHJkMU5SYMH39deFz9JchiAIUFL2BEX5FWcV.Ynx4rkFI'
 
   def html
-    @html ||= Nokogiri::HTML(open(BLOG_URL)) do |config|
+    page = open(BLOG_URL, "Cookie" => BLOG_COOKIES)
+    @html ||= Nokogiri::HTML(page) do |config|
       config.options = Nokogiri::XML::ParseOptions::NONET | Nokogiri::XML::ParseOptions::NOERROR
     end
   end
