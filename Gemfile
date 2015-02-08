@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'rack'
+gem 'mechanize'
 gem 'nokogiri'
+gem 'rack'

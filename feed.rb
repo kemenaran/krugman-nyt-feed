@@ -1,13 +1,16 @@
-require 'open-uri'
 require 'nokogiri'
+require 'mechanize'
 
 class Feed
 
   BLOG_URL = 'http://krugman.blogs.nytimes.com/'
-  BLOG_COOKIES = 'NYT-S=0MJIVCbHZCJpfDXrmvxADeHJkMU5SYMH39deFz9JchiAIUFL2BEX5FWcV.Ynx4rkFI'
 
   def html
-    page = open(BLOG_URL, "Cookie" => BLOG_COOKIES)
+    agent = Mechanize.new do |agent|
+      agent.user_agent_alias = 'Mac Safari'
+    end
+    page = agent.get(BLOG_URL).content
+
     @html ||= Nokogiri::HTML(page) do |config|
       config.options = Nokogiri::XML::ParseOptions::NONET | Nokogiri::XML::ParseOptions::NOERROR
     end
