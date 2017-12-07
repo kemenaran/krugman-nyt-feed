@@ -1,3 +1,7 @@
+# DEPRECATION WARNING
+
+**Paul Krugman’s blog is now published [on the same page than regular columns](https://www.nytimes.com/column/paul-krugman). In consequence this script doesn’t work anymore. Use an RSS Feed expander service to get access to a full list of articles.**
+
 # Overview
 
 I like reading Paul Krugman's ["The Conscience of a Liberal"](http://krugman.blogs.nytimes.com/) blog — but got tired of the [crappy New York Times feed](http://krugman.blogs.nytimes.com/feed/). So here's one that doesn't suck.
